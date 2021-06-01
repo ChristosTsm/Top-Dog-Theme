@@ -1,0 +1,43 @@
+.image-wrapper {
+	overflow: hidden;
+	img {
+		margin-left: -165px;
+		width: 100%;
+		@media (min-width: 540px) and (max-width: 1023px) {
+			margin-left: -150px;
+			margin-bottom: 25px;
+		}
+		@media (min-width: 320px) and (max-width: 539px) {
+			margin-left: -95px;
+			margin-bottom: 25px;
+		}
+	}
+
+	max-width: 650px;
+	max-height: 580px;
+	@media (min-width: 320px) and (max-width: 1024px) {
+		max-width: initial;
+		max-height: initial;
+	}
+}
+
+.text-wrapper {
+	max-width: 600px;
+	@media (min-width: 320px) and (max-width: 1024px) {
+		max-width: 100%;
+		margin: 0 20px;
+	}
+	h2 {
+		font-size: 50px;
+		font-weight: 500;
+		text-transform: uppercase;
+		margin-bottom: 25px;
+		@media (min-width: 320px) and (max-width: 1024px) {
+			font-size: 30px;
+		}
+	}
+	p {
+		line-height: 25px;
+		margin-bottom: 20px;
+	}
+}

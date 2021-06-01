@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The header for our theme
  *
@@ -12,8 +13,9 @@
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
+
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
@@ -21,39 +23,112 @@
 </head>
 
 <body <?php body_class(); ?>>
-<?php wp_body_open(); ?>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'top-dog' ); ?></a>
+	<?php wp_body_open(); ?>
+	<div id="page" class="site">
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$top_dog_description = get_bloginfo( 'description', 'display' );
-			if ( $top_dog_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $top_dog_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
+		<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'top-dog'); ?></a>
+
+		<header id="masthead" class="site-header">
+
+			<div class="nav-wrapper">
+
+				<div class="navbar">
+
+					<div id="open-menu" class="burger-wrapper">
+
+						<?php echo file_get_contents(get_template_directory() . '/assets/images/burger.svg'); ?>
+
+					</div>
+
+					<div id="logo-wrapper">
+
+						<?php if (get_field('header_logo', 'option')) : ?>
+
+							<a href="<?php echo get_home_url(); ?>">
+
+								<?php echo file_get_contents(get_field('header_logo', 'option')); ?>
+
+							</a>
+
+						<?php endif; ?>
+
+					</div>
+
+					<nav id="site-navigation" class="main-navigation">
+
+						<?php
+						wp_nav_menu(
+							array(
+								'theme_location' => 'menu-1',
+								'menu_id'        => 'primary-menu',
+							)
+						);
+						?>
+
+					</nav><!-- #site-navigation -->
+
+
+				</div>
+
+			</div>
+
+			<div class="mobile-menu hide-menu">
+
+				<div class="mobile-menu-header">
+
+					<div id="close-menu">
+
+						<?php echo file_get_contents(get_template_directory() . '/assets/images/menu-close.svg'); ?>
+
+					</div>
+
+					<div class="mobile-menu-logo-wrapper">
+
+						<?php echo file_get_contents(get_template_directory() . '/assets/images/mobile-menu-logo.svg'); ?>
+
+					</div>
+
+
+				</div>
+
+				<nav id="mobile-navigation" class="mobile-navigation">
+
+					<?php
+					wp_nav_menu(
+						array(
+							'theme_location' => 'menu-1',
+							'menu_id'        => 'primary-menu',
+						)
+					);
+					?>
+
+				</nav><!-- #site-navigation -->
+
+			</div>
+
+			<?php if (is_front_page()) : ?>
+
+				<?php $header_image = get_field('header_image'); ?>
+
+				<div class="top-dog-hero-section" style="background: url('<?php echo esc_url($header_image['url']); ?>') bottom center / cover no-repeat;">
+
+					<?php the_field('header_title'); ?>
+
+					<div class="discover-more">
+
+						<span><?php _e('Discover More', 'top-dog'); ?></span>
+
+						<span class="dm-line">|</span>
+
+					</div>
+
+					<div class="curve">
+					</div>
+
+					<div class="curve-mobile"></div>
+
+				</div>
+
 			<?php endif; ?>
-		</div><!-- .site-branding -->
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'top-dog' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+		</header><!-- #masthead -->
