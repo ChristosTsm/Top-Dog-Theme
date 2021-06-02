@@ -1,0 +1,102 @@
+#td-our-products {
+	background: url("./assets/images/our-products-bg.png") no-repeat center;
+	background-size: cover;
+	padding: 20px 0 50px;
+	@media (min-width: 1441px) and (max-width: 2180px) {
+		top: -30px;
+	}
+	@media (min-width: 980px) and (max-width: 1024px) {
+		overflow-x: hidden;
+	}
+	.text-wrapper {
+		margin-left: 200px;
+		padding-top: 120px;
+		color: $td_color_white;
+		max-width: 100%;
+		@media (min-width: 1331px) and (max-width: 1440px) {
+			margin-left: 100px;
+		}
+		@media (min-width: 1281px) and (max-width: 1330px) {
+			margin-left: 70px;
+		}
+		@media (min-width: 1024px) and (max-width: 1280px) {
+			margin-left: 60px;
+			padding-top: 10px;
+		}
+		@media (min-width: 320px) and (max-width: 1023px) {
+			margin: 0 20px;
+			padding-top: 10px;
+		}
+	}
+
+	.grid-col-2-1 {
+		@media (min-width: 1024px) and (max-width: 1440px) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+}
+
+.our-products-images-container {
+	position: relative;
+	text-align: right;
+	img:nth-child(1) {
+		position: absolute;
+		top: -50px;
+		right: 436px;
+		width: 220px;
+		@media (min-width: 1441px) and (max-width: 2180px) {
+			top: -50px;
+			right: 369px;
+		}
+		@media (min-width: 1331px) and (max-width: 1440px) {
+			width: 220px;
+			top: -50px;
+			right: 326px;
+		}
+		@media (min-width: 1281px) and (max-width: 1330px) {
+			width: 220px;
+			top: -45px;
+			right: 273px;
+		}
+		@media (min-width: 1025px) and (max-width: 1280px) {
+			top: -50px;
+			right: 278px;
+		}
+		@media (min-width: 980px) and (max-width: 1024px) {
+			top: -36px;
+			right: 184px;
+			width: 200px;
+		}
+		@media (min-width: 320px) and (max-width: 980px) {
+			top: -19px;
+			right: 245px;
+			width: 120px;
+		}
+	}
+	img:nth-child(2) {
+		margin-top: 80px;
+		margin-right: -150px;
+		@media (min-width: 1331px) and (max-width: 1440px) {
+			max-width: 100%;
+			margin-top: 100px;
+			margin-right: -205px;
+		}
+		@media (min-width: 1281px) and (max-width: 1330px) {
+			max-width: 530px;
+			margin-top: 100px;
+		}
+		@media (min-width: 1024px) and (max-width: 1280px) {
+			max-width: 100%;
+			margin-top: 100px;
+			margin-right: -180px;
+		}
+		@media (min-width: 320px) and (max-width: 1023px) {
+			margin: 0;
+			max-width: 300px;
+		}
+	}
+
+	@media (min-width: 320px) and (max-width: 1023px) {
+		grid-row: 1;
+	}
+}

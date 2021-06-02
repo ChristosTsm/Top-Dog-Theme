@@ -1,0 +1,110 @@
+#td-product-lines {
+	background: url("./assets/images/pl-bg.png") no-repeat bottom / cover;
+	background-color: $td_color_light_gray;
+	padding: 80px;
+	@media (min-width: 320px) and (max-width: 580px) {
+		padding: 20px;
+	}
+}
+
+.product-lines-wrapper {
+	max-width: 1200px;
+	margin: auto;
+}
+
+.product-line-tab-header,
+.product-line-tab-header h4 {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.product-line-tab-header {
+	border-bottom: 1px solid $td_color_black;
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+
+.product-line-tab-header h4 {
+	column-gap: 20px;
+	text-transform: uppercase;
+	font-size: 25px;
+	font-weight: 400;
+	@media (min-width: 320px) and (max-width: 580px) {
+		font-size: 20px;
+	}
+	a {
+		color: $td_color_black;
+	}
+}
+
+.tab-indicator {
+	width: 35px;
+	transition: all ease-in-out 150ms;
+	svg {
+		width: 100%;
+	}
+}
+
+.tab-hidden {
+	transition: all ease-in-out 150ms;
+	opacity: 0;
+	visibility: hidden;
+	p {
+		height: 15px;
+	}
+}
+
+.tab-active {
+	transition: all ease-in-out 150ms;
+	opacity: 1;
+	visibility: visible;
+	padding-bottom: 20px;
+	p {
+		height: 100%;
+	}
+}
+
+.tab-active-title {
+	.tab-indicator {
+		transform: rotate(90deg);
+	}
+}
+
+.product-lines-text-wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	@media (min-width: 320px) and (max-width: 580px) {
+		row-gap: 50px;
+	}
+	h2 {
+		font-size: 50px;
+		font-weight: 500;
+		text-transform: uppercase;
+		margin-bottom: 15px;
+	}
+}
+
+.product-tabs-cta {
+	display: flex;
+	background: #fff;
+	padding: 5px 25px;
+	box-shadow: 0px 10px 34px 0px rgba(0, 0, 0, 0.1);
+	transition: all ease-in-out 150ms;
+	margin-bottom: 50px;
+	&:hover {
+		transform: scale(1.01);
+	}
+	a {
+		flex: 1;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		color: $td_color_black;
+
+		svg {
+			width: 45px;
+		}
+	}
+}

@@ -1,12 +1,16 @@
 <section id="td-about">
 
-    <div class="grid grid-col-1-3 items-center">
+    <div class="grid grid-col-half-auto items-center">
 
         <div class="image-wrapper">
 
             <?php $about_image = get_field('about_us_image'); ?>
 
+
+
             <img src="<?php echo $about_image['url'] ?>" alt="<?php echo $about_image['alt'] ?>">
+
+
 
         </div>
 

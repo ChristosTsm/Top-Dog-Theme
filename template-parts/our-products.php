@@ -1,6 +1,6 @@
 <section id="td-our-products">
 
-    <div class="grid grid-col-1-3 items-center">
+    <div class="grid grid-col-2-1 items-center">
 
         <div class="text-wrapper">
 
