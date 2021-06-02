@@ -198,7 +198,7 @@ if (function_exists('acf_add_options_page')) {
 }
 
 /**
- * ACF Options Page.
+ * SVG Support.
  */
 function add_file_types_to_uploads($file_types)
 {
