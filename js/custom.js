@@ -89,5 +89,26 @@
 				});
 			});
 		}
+
+		if (document.querySelector(".product-tabs-cta-wrapper")) {
+			let personalUseCta = document.querySelector("#personal-use-line");
+			let homeUseCta = document.querySelector("#home-use-line");
+
+			personalUseCta.addEventListener("click", () => {
+				personalUseCta.classList.add("product-tab-active");
+				personalUseCta.classList.remove("product-tab-inactive");
+
+				homeUseCta.classList.remove("product-tab-active");
+				homeUseCta.classList.add("product-tab-inactive");
+			});
+
+			homeUseCta.addEventListener("click", () => {
+				homeUseCta.classList.add("product-tab-active");
+				homeUseCta.classList.remove("product-tab-inactive");
+
+				personalUseCta.classList.remove("product-tab-active");
+				personalUseCta.classList.add("product-tab-inactive");
+			});
+		}
 	});
 })(jQuery);

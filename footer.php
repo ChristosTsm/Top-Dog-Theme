@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying the footer
  *
@@ -11,24 +12,61 @@
 
 ?>
 
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'top-dog' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'top-dog' ), 'WordPress' );
-				?>
+<footer id="colophon" class="site-footer">
+
+	<div class="footer-menu-wrapper">
+
+		<div class="footer-menu footer-menu-left">
+
+			<?php
+			wp_nav_menu(
+				array(
+					'theme_location' => 'footer-menu-left',
+					'menu_id'        => 'footer-menu-left',
+				)
+			);
+			?>
+
+		</div>
+
+		<div class="footer-logo">
+
+			<?php $footer_logo = get_field('footer_logo', 'option'); ?>
+
+			<a href="<?php home_url(); ?>">
+
+				<?php echo file_get_contents($footer_logo) ?>
+
 			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'top-dog' ), 'top-dog', '<a href="http://net22.gr/">Net22</a>' );
-				?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
+
+		</div>
+
+		<div class="footer-menu footer-menu-right">
+			<?php
+			wp_nav_menu(
+				array(
+					'theme_location' => 'footer-menu-right',
+					'menu_id'        => 'footer-menu-right',
+				)
+			);
+			?>
+		</div>
+
+	</div>
+
+	<div class="footer-bottom-bar">
+
+		<p>&copy; <?php _e('Copyright 2021 top dog.All rights reserved.') ?></p>
+
+		<p><?php _e('Designed by ') ?><a target="_blank" rel="noopener" href="https://net22.gr">Net22</a></p>
+
+	</div>
+
+</footer><!-- #colophon -->
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
 
 </body>
+
 </html>

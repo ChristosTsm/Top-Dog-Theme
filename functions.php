@@ -53,6 +53,8 @@ if (!function_exists('top_dog_setup')) :
 		register_nav_menus(
 			array(
 				'menu-1' => esc_html__('Primary', 'top-dog'),
+				'footer-menu-left' => esc_html__('Footer Menu Left', 'top-dog'),
+				'footer-menu-right' => esc_html__('Footer Menu Right', 'top-dog'),
 			)
 		);
 
@@ -196,6 +198,12 @@ if (function_exists('acf_add_options_page')) {
 
 	acf_add_options_page();
 }
+
+/**
+ * Products CPT
+ */
+require get_template_directory() . '/inc/custom-post-types.php';
+
 
 /**
  * SVG Support.

@@ -1,0 +1,129 @@
+#td-partner {
+	background-color: $td_color_light_gray;
+	margin-top: -10px;
+	padding: 80px 0;
+	@media (min-width: 320px) and (max-width: 1023px) {
+		padding: 0 20px;
+	}
+	@media (min-width: 1024px) and (max-width: 1180px) {
+		padding: 0 20px;
+		margin-top: 0;
+	}
+}
+
+.grid-col-partner {
+	grid-template-columns: 0.7fr 1fr;
+	@media (min-width: 1181px) and (max-width: 1280px) {
+		grid-template-columns: 0.6fr 1fr;
+	}
+	@media (min-width: 320px) and (max-width: 1023px) {
+		grid-template-columns: 1fr;
+	}
+}
+
+.partner-image {
+	max-width: 100%;
+	width: 100%;
+	@media (min-width: 320px) and (max-width: 1023px) {
+		display: none;
+	}
+	img {
+		width: 100%;
+		margin-left: -250px;
+
+		@media (min-width: 1181px) and (max-width: 1280px) {
+			margin-left: -140px;
+		}
+	}
+}
+
+.partner-info {
+	padding: 50px 0;
+	@media (min-width: 1281px) and (max-width: 1440px) {
+		margin-left: -120px;
+	}
+	@media (min-width: 1181px) and (max-width: 1280px) {
+		margin-left: -65px;
+	}
+	@media (min-width: 320px) and (max-width: 1023px) {
+		padding: 30px 0 0;
+	}
+	h2 {
+		font-size: 50px;
+		font-weight: 500;
+		text-transform: uppercase;
+		@media (min-width: 320px) and (max-width: 1180px) {
+			font-size: 30px;
+		}
+	}
+
+	h4 {
+		text-transform: uppercase;
+		font-weight: 500;
+		margin: 20px 0 80px 0;
+		@media (min-width: 320px) and (max-width: 1023px) {
+			margin: 10px 0 50px 0;
+		}
+	}
+}
+
+.partnership-options {
+	display: flex;
+	max-width: 900px;
+	justify-content: space-between;
+	margin-bottom: 65px;
+	@media (min-width: 320px) and (max-width: 1023px) {
+		max-width: 100%;
+		flex-wrap: wrap;
+		margin-bottom: 40px;
+	}
+}
+
+.partnership-options-single {
+	display: flex;
+	column-gap: 15px;
+	max-width: 215px;
+	@media (min-width: 320px) and (max-width: 1023px) {
+		max-width: 300px;
+		margin: 0 auto 25px auto;
+	}
+	span {
+		font-size: 35px;
+		font-weight: 100;
+		// margin-right: 10px;
+	}
+	p {
+		line-height: 25px;
+	}
+}
+
+.partnership-chars {
+	h5 {
+		font-size: 20px;
+		font-weight: 500;
+	}
+}
+
+.partnership-chars-list-wrapper {
+	margin-top: 50px;
+}
+
+.partnership-chars-list-single {
+	position: relative;
+	margin-bottom: 30px;
+	margin-left: 25px;
+	&::before {
+		content: url(./assets/images/list-item-icon.svg);
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		left: -25px;
+		width: 18px;
+		height: 16px;
+	}
+
+	h6 {
+		font-size: 16px;
+		font-weight: 400;
+	}
+}

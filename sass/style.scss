@@ -46,3 +46,168 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 @import "./product_lines";
 
 @import "./distribution";
+
+@import "./reasons";
+
+@import "./become_partners";
+
+@import "./contact";
+
+@import "./product-tabs";
+
+main {
+	overflow-x: hidden;
+}
+
+footer {
+	background-color: #000;
+	padding: 20px 50px;
+	@media (min-width: 320px) and (max-width: 1023px) {
+		padding: 20px;
+	}
+}
+
+.footer-menu-wrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	@media (min-width: 320px) and (max-width: 1023px) {
+		border-top: 1px solid $td_color_white;
+		border-bottom: 1px solid $td_color_white;
+		padding: 50px 0;
+	}
+	@media (min-width: 1024px) and (max-width: 1180px) {
+		border-bottom: 1px solid $td_color_white;
+		padding: 30px 0;
+	}
+}
+
+.footer-logo {
+	padding: 0 30px;
+	text-align: center;
+	@media (min-width: 320px) and (max-width: 1180px) {
+		flex: 1;
+	}
+}
+
+.footer-menu {
+	flex: 1;
+	border-bottom: 1px solid $td_color_white;
+	margin-top: -20px;
+	@media (min-width: 320px) and (max-width: 1180px) {
+		display: none;
+	}
+	ul {
+		display: flex;
+	}
+	li {
+		padding-bottom: 20px;
+		a {
+			color: #fff;
+			padding-bottom: 20px;
+			text-transform: capitalize;
+		}
+	}
+}
+
+.footer-menu-left {
+	li {
+		margin-right: 50px;
+	}
+	a {
+		position: relative;
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: -2px;
+			left: 0;
+			width: 100%;
+			height: 3px;
+			background-color: $td_color_pink;
+			opacity: 0;
+			transition: all ease-in-out 150ms;
+		}
+		&:hover {
+			&::after {
+				opacity: 1;
+			}
+		}
+	}
+	li:nth-child(2) {
+		a::after {
+			background-color: $td_color_cyan;
+		}
+	}
+	li:nth-child(3) {
+		a::after {
+			background-color: $td_color_yellow;
+		}
+	}
+	li:nth-child(4) {
+		a::after {
+			background-color: $td_color_red;
+		}
+	}
+}
+
+.footer-menu-right {
+	ul {
+		justify-content: flex-end;
+	}
+	li {
+		margin-left: 50px;
+	}
+	a {
+		position: relative;
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: -2px;
+			left: 0;
+			width: 100%;
+			height: 3px;
+			background-color: $td_color_pink;
+			opacity: 0;
+			transition: all ease-in-out 150ms;
+		}
+		&:hover {
+			&::after {
+				opacity: 1;
+			}
+		}
+	}
+	li:nth-child(2) {
+		a::after {
+			background-color: $td_color_orange;
+		}
+	}
+	li:nth-child(3) {
+		a::after {
+			background-color: $td_color_teal;
+		}
+	}
+	li:nth-child(4) {
+		a::after {
+			background-color: $td_color_pink;
+		}
+	}
+}
+
+.footer-bottom-bar {
+	display: flex;
+	justify-content: space-between;
+	@media (min-width: 320px) and (max-width: 1180px) {
+		flex-direction: column;
+		row-gap: 20px;
+		padding: 20px 0;
+		text-align: center;
+	}
+	p,
+	a {
+		color: #fff;
+		text-transform: uppercase;
+		@media (min-width: 320px) and (max-width: 1180px) {
+			font-size: 12px;
+		}
+	}
+}

@@ -1,0 +1,101 @@
+.reasons-text-wrapper {
+	justify-content: center;
+	background: url("./assets/images/reasons-bg.svg") no-repeat;
+	@media (min-width: 1281px) and (max-width: 1440px) {
+		background-position: -10%;
+		column-gap: 200px;
+	}
+	@media (min-width: 1181px) and (max-width: 1280px) {
+		background-position: -30%;
+		column-gap: 160px;
+	}
+	@media (min-width: 320px) and (max-width: 1180px) {
+		min-height: auto;
+		background: none;
+	}
+	.reasons-text {
+		color: $td_color_white;
+		margin: 0 50px;
+		text-align: center;
+		@media (min-width: 320px) and (max-width: 1180px) {
+			background: #000;
+			margin: -30px 0 0 0;
+			padding: 70px 20px;
+		}
+		h2 {
+			font-size: 40px;
+			text-transform: uppercase;
+			margin-bottom: 40px;
+			font-weight: 500;
+			@media (min-width: 1181px) and (max-width: 1280px) {
+				font-size: 35px;
+			}
+			@media (min-width: 320px) and (max-width: 1180px) {
+				font-size: 30px;
+				margin-bottom: 20px;
+			}
+		}
+
+		h3 {
+			font-size: 20px;
+			text-transform: uppercase;
+			font-weight: 400;
+		}
+	}
+}
+
+.rs-col-l {
+	min-height: 800px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	max-width: 650px;
+	@media (min-width: 1281px) and (max-width: 1440px) {
+		max-width: 550px;
+	}
+	@media (min-width: 1181px) and (max-width: 1280px) {
+		max-width: 400px;
+	}
+	@media (min-width: 1024px) and (max-width: 1180px) {
+		min-height: 100%;
+		background-color: #000;
+	}
+	@media (min-width: 320px) and (max-width: 1023px) {
+		min-height: auto;
+		max-width: 100%;
+	}
+}
+
+.reasons-list-wrapper {
+	min-height: 100%;
+	display: flex;
+	@media (min-width: 320px) and (max-width: 1180px) {
+		margin: 50px 20px 0 50px;
+		min-height: auto;
+	}
+}
+
+.reasons-list {
+	color: $td_color_black;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	@media (min-width: 320px) and (max-width: 1180px) {
+		justify-content: flex-start;
+	}
+}
+
+.reasons-list-item {
+	position: relative;
+	margin-bottom: 45px;
+	&::before {
+		content: url(./assets/images/list-item-icon.svg);
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		left: -25px;
+		width: 18px;
+		height: 16px;
+	}
+}
