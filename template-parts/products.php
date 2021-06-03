@@ -36,7 +36,7 @@
 
         </div>
 
-        <div class="product-tabs-content">
+        <div id="product-tabs-content-home" class="product-tabs-content">
 
             <?php get_template_part('template-parts/products', 'tab-content'); ?>
 

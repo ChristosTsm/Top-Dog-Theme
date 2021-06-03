@@ -1,28 +1,33 @@
 <div class="product-categories">
+
     <ul>
 
         <?php
         $cat_args = array(
-            'type' => 'products',
-            'exclude' => array(1),
-            'option_all' => 'All'
+            'hide_empty' => 0,
+            'taxonomy'  => 'product-cat'
         );
 
         $categories = get_categories($cat_args);
 
-        foreach ($categories as $cat) : ?>
+        foreach ($categories as $cat) :
 
-            <li>
-                <a href="<?php get_category_link($cat->term_id) ?>"><?php $cat->name ?></a>
-            </li>
+            if ($cat->parent == 18) : ?>
+
+                <li class="js-filter-item">
+                    <a data-category="<?php echo $cat->term_id; ?>" href="<?php echo esc_url(get_category_link($cat->term_id)); ?>"><?php echo $cat->name ?></a>
+                </li>
+
+            <?php endif; ?>
 
         <?php endforeach; ?>
 
     </ul>
+
 </div>
 
 
-<div class="products-filter">
+<div class="products-filter js-filter">
 
     <?php
 
