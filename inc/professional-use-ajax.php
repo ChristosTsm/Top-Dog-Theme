@@ -1,12 +1,12 @@
 <?php
 
-add_action('wp_ajax_nopriv_filter', 'filter_ajax');
-add_action('wp_ajax_filter', 'filter_ajax');
+add_action('wp_ajax_nopriv_filter_pro', 'filter_ajax_pro');
+add_action('wp_ajax_filter_pro', 'filter_ajax_pro');
 
-function filter_ajax()
+function filter_ajax_pro()
 {
 
-    $category = $_POST['category'];
+    $categorypro = $_POST['categorypro'];
 
 
     $args = array(
@@ -14,19 +14,19 @@ function filter_ajax()
         'posts_per_page' => -1,
     );
 
-    if (isset($category)) {
+    if (isset($categorypro)) {
         $args['tax_query'] = array(
             array(
                 'taxonomy' => 'product-cat',
                 'field'    => 'term_id',
-                'terms'    => array($category),
+                'terms'    =>  array($categorypro),
             ),
         );
     }
 
     $query = new WP_Query($args); ?>
 
-    <div class="products-filter-slider home-use-slider">
+    <div id="products-professional-slider" class="products-filter-slider">
 
         <?php if ($query->have_posts()) : ?>
 
@@ -64,13 +64,13 @@ function filter_ajax()
         ?>
     </div>
 
-    <!-- <div class="arrows arrows-home"> -->
+    <!-- <div class="arrows arrows-pro"> -->
 
     <!-- <ul> -->
 
-    <span class="prev-home"><?php echo file_get_contents(get_template_directory() . '/assets/images/slider-arrow-prev.svg') ?></span>
+    <span class="prev-pro"><?php echo file_get_contents(get_template_directory() . '/assets/images/slider-arrow-prev.svg') ?></span>
 
-    <span class="next-home"><?php echo file_get_contents(get_template_directory() . '/assets/images/slider-arrow-next.svg') ?></span>
+    <span class="next-pro"><?php echo file_get_contents(get_template_directory() . '/assets/images/slider-arrow-next.svg') ?></span>
 
     <!-- </ul> -->
 

@@ -173,6 +173,10 @@ function top_dog_scripts()
 	wp_enqueue_script('top-dog-ajax', get_template_directory_uri() . '/js/ajax.js', array('jquery'), _S_VERSION, true);
 
 	wp_localize_script('top-dog-ajax', 'wp_ajax', array('ajax_url' => admin_url('admin-ajax.php')));
+
+	wp_enqueue_script('top-dog-ajax-pro', get_template_directory_uri() . '/js/ajax-pro.js', array('jquery'), _S_VERSION, true);
+
+	wp_localize_script('top-dog-ajax-pro', 'wpAjax', array('ajaxUrl' => admin_url('admin-ajax.php')));
 }
 add_action('wp_enqueue_scripts', 'top_dog_scripts');
 
@@ -220,6 +224,11 @@ require get_template_directory() . '/inc/custom-post-types.php';
  * Ajax for products
  */
 require get_template_directory() . '/inc/home-use-ajax.php';
+
+/**
+ * Ajax for products
+ */
+require get_template_directory() . '/inc/professional-use-ajax.php';
 
 
 /**

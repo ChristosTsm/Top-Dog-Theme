@@ -90,24 +90,120 @@
 			});
 		}
 
+		$(".home-use-slider").slick({
+			dots: false,
+			prevArrow: $(".prev-home"),
+			nextArrow: $(".next-home"),
+			infinite: false,
+			speed: 300,
+			slidesToShow: 4,
+			slidesToScroll: 4,
+			responsive: [
+				{
+					breakpoint: 1024,
+					settings: {
+						slidesToShow: 3,
+						slidesToScroll: 3,
+						dots: false,
+					},
+				},
+				{
+					breakpoint: 600,
+					settings: {
+						slidesToShow: 2,
+						slidesToScroll: 2,
+						dots: true,
+					},
+				},
+				{
+					breakpoint: 480,
+					settings: {
+						slidesToShow: 2,
+						slidesToScroll: 2,
+						dots: true,
+					},
+				},
+			],
+		});
+		$("#products-professional-slider").slick({
+			dots: false,
+			prevArrow: $(".prev-pro"),
+			nextArrow: $(".next-pro"),
+			infinite: false,
+			speed: 300,
+			slidesToShow: 4,
+			slidesToScroll: 4,
+			responsive: [
+				{
+					breakpoint: 1024,
+					settings: {
+						slidesToShow: 3,
+						slidesToScroll: 3,
+						dots: false,
+					},
+				},
+				{
+					breakpoint: 600,
+					settings: {
+						slidesToShow: 2,
+						slidesToScroll: 2,
+						dots: true,
+					},
+				},
+				{
+					breakpoint: 480,
+					settings: {
+						slidesToShow: 2,
+						slidesToScroll: 2,
+						dots: true,
+					},
+				},
+				// You can unslick at a given breakpoint now by adding:
+				// settings: "unslick"
+				// instead of a settings object
+			],
+		});
+
 		if (document.querySelector(".product-tabs-cta-wrapper")) {
-			let personalUseCta = document.querySelector("#personal-use-line");
+			let professionalUseCta = document.querySelector(
+				"#professional-use-line"
+			);
 			let homeUseCta = document.querySelector("#home-use-line");
 
-			personalUseCta.addEventListener("click", () => {
-				personalUseCta.classList.add("product-tab-active");
-				personalUseCta.classList.remove("product-tab-inactive");
+			let homeUseProductsContainer = document.querySelector(
+				"#product-tabs-content-home"
+			);
+			let professionalProductsContainer = document.querySelector(
+				"#product-tabs-content-professional"
+			);
+
+			professionalUseCta.addEventListener("click", () => {
+				$("#products-professional-slider").slick("refresh");
+				$(".home-use-slider").slick("unslick");
+
+				professionalUseCta.classList.add("product-tab-active");
+				professionalUseCta.classList.remove("product-tab-inactive");
+
+				professionalProductsContainer.style.display = "block";
+
+				homeUseProductsContainer.style.display = "none";
 
 				homeUseCta.classList.remove("product-tab-active");
 				homeUseCta.classList.add("product-tab-inactive");
 			});
 
 			homeUseCta.addEventListener("click", () => {
+				$(".home-use-slider").slick("refresh");
+				$("#products-professional-slider").slick("unslick");
+
 				homeUseCta.classList.add("product-tab-active");
 				homeUseCta.classList.remove("product-tab-inactive");
 
-				personalUseCta.classList.remove("product-tab-active");
-				personalUseCta.classList.add("product-tab-inactive");
+				homeUseProductsContainer.style.display = "block";
+				professionalProductsContainer.style.display = "none";
+
+				professionalUseCta.classList.remove("product-tab-active");
+				professionalUseCta.classList.add("product-tab-inactive");
 			});
 		}
 	});

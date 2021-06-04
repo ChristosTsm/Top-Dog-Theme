@@ -1,30 +1,46 @@
-<?php
+<div class="product-categories">
 
-add_action('wp_ajax_nopriv_filter', 'filter_ajax');
-add_action('wp_ajax_filter', 'filter_ajax');
+    <ul class="product-categories-list">
 
-function filter_ajax()
-{
+        <li class="js-filter-item"><a href="<?php home_url(); ?>"><?php _e('All', 'top-dog'); ?></a></li>
 
-    $category = $_POST['category'];
+        <?php
+        $cat_args = array(
+            'hide_empty' => 0,
+            'taxonomy'  => 'product-cat'
+        );
 
+        $categories = get_categories($cat_args);
+
+        foreach ($categories as $cat) :
+
+            if ($cat->parent == 18) : ?>
+
+                <li class="js-filter-item">
+                    <a data-category="<?php echo $cat->term_id; ?>" href="<?php echo esc_url(get_category_link($cat->term_id)); ?>"><?php echo $cat->name ?></a>
+                </li>
+
+            <?php endif; ?>
+
+        <?php endforeach; ?>
+
+    </ul>
+
+</div>
+
+
+<div class="products-filter js-filter">
+
+    <?php
 
     $args = array(
         'post_type' => 'products',
-        'posts_per_page' => -1,
+        'posts_per_page' => -1
     );
 
-    if (isset($category)) {
-        $args['tax_query'] = array(
-            array(
-                'taxonomy' => 'product-cat',
-                'field'    => 'term_id',
-                'terms'    => array($category),
-            ),
-        );
-    }
+    $query = new WP_Query($args);
 
-    $query = new WP_Query($args); ?>
+    ?>
 
     <div class="products-filter-slider home-use-slider">
 
@@ -75,5 +91,5 @@ function filter_ajax()
     <!-- </ul> -->
 
     <!-- </div> -->
-<?php die();
-}
+
+</div>

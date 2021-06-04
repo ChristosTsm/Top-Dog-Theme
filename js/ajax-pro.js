@@ -3,8 +3,8 @@
 		function getSliderSettings() {
 			return {
 				dots: false,
-				prevArrow: $(".prev-home"),
-				nextArrow: $(".next-home"),
+				prevArrow: $(".prev-pro"),
+				nextArrow: $(".next-pro"),
 				infinite: false,
 				speed: 300,
 				slidesToShow: 4,
@@ -23,6 +23,7 @@
 						settings: {
 							slidesToShow: 2,
 							slidesToScroll: 2,
+							dots: true,
 						},
 					},
 					{
@@ -30,18 +31,22 @@
 						settings: {
 							slidesToShow: 2,
 							slidesToScroll: 2,
+							dots: true,
 						},
 					},
+					// You can unslick at a given breakpoint now by adding:
+					// settings: "unslick"
+					// instead of a settings object
 				],
 			};
 		}
 
-		$(document).on("click", ".js-filter-item > a", function (e) {
+		$(document).on("click", ".js-filter-item-pro > a", function (e) {
 			e.preventDefault();
 
-			var category = $(this).data("category");
+			var categorypro = $(this).data("categorypro");
 
-			let links = document.querySelectorAll(".js-filter-item > a");
+			let links = document.querySelectorAll(".js-filter-item-pro > a");
 
 			links.forEach((link) => {
 				link.classList.remove("active-cat");
@@ -52,13 +57,13 @@
 			e.target.classList.remove("inactive-cat");
 
 			$.ajax({
-				url: wp_ajax.ajax_url,
-				data: { action: "filter", category: category },
+				url: wpAjax.ajaxUrl,
+				data: { action: "filter_pro", categorypro: categorypro },
 				type: "post",
 				success: function (result) {
-					$(".home-use-slider").slick("unslick");
-					$(".js-filter").html(result);
-					$(".home-use-slider")
+					$("#products-professional-slider").slick("unslick");
+					$(".js-filter-pro").html(result);
+					$("#products-professional-slider")
 						.not(".slick-initialized")
 						.slick(getSliderSettings());
 				},
